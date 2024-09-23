@@ -52,8 +52,3 @@ jobs:
           docker stop pi-ac
           docker rm --force pi-ac
           docker run -d -p 8080:8080 --network=rede --name pi-ac ninasavoy/pi-ac:${{ github.sha }}
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
